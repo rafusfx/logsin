@@ -1,0 +1,25 @@
+<h3>New User</h3>
+<div class="form-group">
+  <fieldset>
+    <label class="control-label">Name:</label>
+    <input placeholder="Name" class="form-control" [(ngModel)]="user.name" required #name='ngModel' autofocus>
+
+    <label class="control-label">Sobrenome:</label>
+    <input placeholder="Sobre Nome" class="form-control" [(ngModel)]="user.sobrenome" required #sobrenome='ngModel' autofocus>
+
+     <label class="control-label">Email:</label>
+    <input placeholder="Email" class="form-control" [(ngModel)]="user.email" required #email='ngModel' autofocus>
+
+    <div *ngIf="name.dirty">
+      <span *ngIf='name.errors; then errors else valid'>template renders here...</span>
+    </div>
+
+    <button class="btn btn-primary"  (click)="createUser()" [disabled]="!name.valid">Create</button>
+  </fieldset>
+</div>
+<ng-template #valid>
+  <p class="text-success">Looks good!</p>
+</ng-template>
+<ng-template #errors>
+  <p class="text-danger">Form contains errors!!</p>
+</ng-template>

@@ -1,0 +1,12 @@
+<h5 class="card-header">{{user.name}}</h5>
+<div class="card-block">
+  Active: {{user.active}}<br>
+  {{user.timeStamp | date:'medium'}}
+</div>
+
+<div class="card-footer text-muted text-xs-center">
+  <span class="btn btn-sm btn-secondary" (click)='updateTimeStamp()'>Update Timestamp</span>
+  <span class="btn btn-sm btn-success" *ngIf='user.active' (click)='updateActive(false)'>Mark Complete</span>
+  <span class="btn btn-sm btn-primary" *ngIf='!user.active' (click)='updateActive(true)'>Mark Active</span>
+  <span class="btn btn-sm btn-danger"  (click)='deleteUser()'>Delete</span>
+</div>

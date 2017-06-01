@@ -1,0 +1,13 @@
+<h1>Users</h1>
+
+<div *ngFor="let user of users | async" class="card">
+  <app-user-detail [user]="user"></app-user-detail>
+</div>
+
+<button type="button" class="btn btn-danger" (click)='deleteItems()'>
+Delete all Users
+</button>
+
+<hr>
+<app-user-form></app-user-form>
+

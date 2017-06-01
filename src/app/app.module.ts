@@ -16,6 +16,9 @@ import { MembersComponent } from './members/members.component';
 import { AuthGuard } from './auth.service';
 import { routes } from './app.routes';
 import * as firebase from 'firebase/app';
+import { UsersListComponent } from './users/users-list/users-list.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -32,7 +35,10 @@ export const firebaseConfig = {
     LoginComponent,
     EmailComponent,
     SignupComponent,
-    MembersComponent
+    MembersComponent,
+    UsersListComponent,
+    UserDetailComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
