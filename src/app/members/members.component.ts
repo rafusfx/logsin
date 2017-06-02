@@ -24,9 +24,26 @@ export class MembersComponent implements OnInit {
     
       if(this.user) {
         this.name = "Bro";
+         var uid  =   this.afAuth.auth.currentUser.uid;
+          var exist = firebase.database().ref().child("/users/" + uid).once("value", function(snapshot) {
+              
+              var userData = snapshot.val();    
+            
+              if(userData){
+                  console.log("exist!!");
+                  return true;
+                    
+                }else{
+                  return true;
+                }
+          });
+           
+        if(exist){
+          this.router.navigateByUrl('/users/users-list');
+        }
+       
       }
-   
-
+  
   }
 
   logout() {

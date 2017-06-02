@@ -26,11 +26,10 @@ export class LoginComponent implements OnInit {
       });
       this.user = this.afAuth.authState;     
      
-      if(this.user) {
+    
+      if(this.user){
         this.router.navigateByUrl('/members');
       }
-   
-
   }
 
   loginFb() {
@@ -49,13 +48,16 @@ export class LoginComponent implements OnInit {
 
   loginGoogle() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-    .then(
-          (success) => {
-          this.router.navigate(['/members']);
-        }).catch(
-          (err) => {
-          this.error = err;
-        })
+    .then(function(result){
+
+         console.log(result.user);
+      this.router.navigate(['/members']);
+     
+
+    }).catch(
+        (err) => {
+        this.error = err;
+      })
   }
 
 
